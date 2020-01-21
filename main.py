@@ -1,7 +1,6 @@
 import pygame
 from game import Game
-from animation import Animation
-from animation import AnimType
+from gachi import Gachi
 from wall import Wall
 
 class Assets:
@@ -16,17 +15,28 @@ class FlappyGachi(Game):
         super().setup()
         #setup code goes here
         self.assets = Assets()
-        self.gachi = Animation(self.assets.gachiBASS,56,56)
-        self.testWall = Wall(self.assets.nolyuolan,200)
+        self.walls = [Wall(self.assets.nolyuolan,600+(i*500)) for i in range(3)]
+
+        self.gachi = Gachi(self.assets.gachiBASS,250,Game.height / 2)
+
         
     def update(self):
         self.gachi.update(self.dt)
-        
+        for wall in self.walls:
+            wall.update()
+        for i in range(len(self.walls)):
+            if self.walls[i].x + self.walls[i].width < 250:
+                self.walls.append(self.walls.pop(i))
+
+
+    def mouse_down(self):
+        self.gachi.jump()
 
     def draw(self):
-        self.surface.fill((0,0,0))
-        self.gachi.show(self.surface,100,100)
-        self.testWall.draw(self.surface)
+        self.surface.fill((128,187,255))        
+        for wall in self.walls:
+            wall.draw(self.surface)
+        self.gachi.draw(self.surface)
         
 
     def dispose(self):

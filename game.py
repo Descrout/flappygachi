@@ -21,9 +21,14 @@ class Game:
         self.clock = pygame.time.Clock()
         self._running = True
  
+    def mouse_down(self):
+        pass
+
     def handle_event(self, event):
         if event.type == pygame.QUIT:
             self._running = False
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            self.mouse_down()
     def update(self):
         pass
     def draw(self):
