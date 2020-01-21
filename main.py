@@ -1,32 +1,22 @@
 import pygame
+from game import Game
 
-pygame.init()
+class FlappyGachi(Game):
+    def setup(self):
+        super().setup()
+        #setup code goes here
+        
+    def update(self):
+        print(self.dt)
+        pass
 
-WIDTH = 800
-HEIGHT = 600
-FPS = 60
+    def draw(self):
+        pass
 
-black = (0,0,0)
-white = (255,255,255)
+    def dispose(self):
+        #dispose code goes here
+        super().dispose()
 
-dt = 0
-clock = pygame.time.Clock()
-
-display = pygame.display.set_mode((WIDTH,HEIGHT))
-pygame.display.set_caption('Flappy Gachi')
-
-
-stop = False
-while not stop:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            stop = True
-    
-
-
-    pygame.display.update()
-    dt = clock.tick(FPS) / 1000
-
-
-pygame.quit()
-quit()
+if __name__ == "__main__" :
+    app = FlappyGachi(640,480,60,"Flappy Gachi")
+    app.execute()
