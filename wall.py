@@ -6,12 +6,12 @@ class Wall:
     def __init__(self,img,x):
         self.img = img
         self.x = x
-        self.spacing = 180
+        self.spacing = 150
         self.width = 100
         self.reset()
     
     def reset(self):
-        self.offset = random.randrange(-100,120,20)
+        self.offset = random.randrange(-110,140,30)
         self.top = 200+self.offset
         self.bottom = 200+self.spacing+self.offset
         self.top_height = self.top
@@ -21,6 +21,7 @@ class Wall:
 
     def update(self):
         self.x -= 2
+
 
     def draw(self,surface):
         surface.blit(self.imgt,(self.x,0))

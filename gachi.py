@@ -2,7 +2,7 @@ from animation import Animation
 from animation import AnimType
 
 class Gachi:
-    gravity = .98
+    gravity = .7
     def __init__(self,img,x,y):
         self.anim = Animation(img,56,56)
         self.anim.anim_type = AnimType.REPEAT
@@ -11,7 +11,7 @@ class Gachi:
         self.vel_y = 0
 
     def jump(self):
-        self.vel_y = -12
+        self.vel_y = -9
 
     def update(self,dt):
         self.anim.update(dt)

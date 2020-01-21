@@ -25,7 +25,13 @@ class FlappyGachi(Game):
         for wall in self.walls:
             wall.update()
         for i in range(len(self.walls)):
-            if self.walls[i].x + self.walls[i].width < 250:
+            tWall = self.walls[i]
+            right_side = tWall.x + tWall.width
+
+            if right_side < 0:
+                tWall.reset()
+                tWall.x = self.walls[-2].x + 500
+            elif right_side < 215:
                 self.walls.append(self.walls.pop(i))
 
 
