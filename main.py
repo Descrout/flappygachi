@@ -18,5 +18,5 @@ class FlappyGachi(Game):
         super().dispose()
 
 if __name__ == "__main__" :
-    app = FlappyGachi(640,480,60,"Flappy Gachi")
+    app = FlappyGachi(caption="Flappy Gachi")
     app.execute()
