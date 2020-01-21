@@ -17,13 +17,15 @@ class FlappyGachi(Game):
         self.assets = Assets()
         self.walls = [Wall(self.assets.nolyuolan,600+(i*500)) for i in range(3)]
 
-        self.gachi = Gachi(self.assets.gachiBASS,250,Game.height / 2)
+        self.gachi = Gachi(self.assets.gachiBASS,250,Game.height / 2,56,56)
 
         
     def update(self):
-        self.gachi.update(self.dt)
+        self.gachi.update(self.dt,self.walls[0])
+
         for wall in self.walls:
             wall.update()
+            
         for i in range(len(self.walls)):
             tWall = self.walls[i]
             right_side = tWall.x + tWall.width

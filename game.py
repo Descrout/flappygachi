@@ -1,6 +1,18 @@
 import pygame
 from pygame.locals import *
- 
+
+class Rectangle:
+    def __init__(self,x,y,w,h):
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+    
+
+    def intersect(self,other):
+        return (self.x + self.w > other.x and self.x < other.x + other.w and
+        self.y + self.h > other.y and self.y < other.y + other.h)
+
 class Game:
     width = 640
     height = 480

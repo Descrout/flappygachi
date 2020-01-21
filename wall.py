@@ -1,5 +1,6 @@
 import pygame
 from game import Game
+from game import Rectangle
 import random
 
 class Wall:
@@ -18,9 +19,12 @@ class Wall:
         self.bottom_height = Game.height - self.bottom
         self.imgt = pygame.transform.scale(self.img,(self.width,self.top_height))
         self.imgb = pygame.transform.scale(self.img,(self.width,self.bottom_height))
+        self.collider_top = Rectangle(self.x,0,self.width,self.top)
+        self.collider_bottom = Rectangle(self.x,self.bottom_height,self.width,self.bottom)
 
     def update(self):
         self.x -= 2
+        self.collider_top.x = self.collider_bottom.x = self.x
 
 
     def draw(self,surface):
