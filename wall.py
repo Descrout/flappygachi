@@ -20,7 +20,7 @@ class Wall:
         self.imgt = pygame.transform.scale(self.img,(self.width,self.top_height))
         self.imgb = pygame.transform.scale(self.img,(self.width,self.bottom_height))
         self.collider_top = Rectangle(self.x,0,self.width,self.top)
-        self.collider_bottom = Rectangle(self.x,self.bottom_height,self.width,self.bottom)
+        self.collider_bottom = Rectangle(self.x,self.bottom,self.width,self.bottom_height)
 
     def update(self):
         self.x -= 2

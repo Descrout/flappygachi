@@ -40,6 +40,7 @@ class FlappyGachi(Game):
     def mouse_down(self):
         self.gachi.jump()
 
+
     def draw(self):
         self.surface.fill((128,187,255))        
         for wall in self.walls:
