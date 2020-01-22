@@ -1,7 +1,6 @@
 import numpy as np
 import random
 
-
 class Genetics:
     @staticmethod
     def calculate_fitness(dead_gachis):
@@ -11,8 +10,6 @@ class Genetics:
         
         for d_gachi in dead_gachis:
             d_gachi.fitness = (d_gachi.score * d_gachi.score) / sum_score
-        
-
 
     @staticmethod
     def pick_one(dead_gachis):
@@ -22,19 +19,6 @@ class Genetics:
             i+=1
             r -= dead_gachis[i].fitness   
         return dead_gachis[i]
-
-        #another selection method
-        #f_sum = 0
-
-        #for d_gachi in dead_gachis:
-        #    f_sum += d_gachi.fitness
-
-        #r = random.random() * f_sum
-        #sum = 0
-        #for d_gachi in dead_gachis:
-        #    if r <= (sum := sum + d_gachi.fitness):
-        #        return d_gachi
-        #return None     
 
     @staticmethod
     def mutate(gachi_arr,rate):
@@ -76,8 +60,6 @@ class Genetics:
         flappygachi.gachis = [Genetics.crossover(flappygachi.dead_gachis) for _ in range(30)]
         flappygachi.dead_gachis = []
         
-        
-
 
 class NeuralNetwork:
     def __init__(self, layer_sizes):
@@ -95,7 +77,3 @@ class NeuralNetwork:
     @staticmethod
     def sigmoid(x):
         return 1/(1+np.exp(-x))
-
-    @staticmethod
-    def d_sigmoid(x):
-        return x * (1 - x)

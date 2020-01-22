@@ -8,7 +8,6 @@ class Assets:
     def __init__(self):
         self.gachiBASS = pygame.image.load("data/gachiBASS.png")
         self.gachiBASS = pygame.transform.scale(self.gachiBASS,(280,112))
-
         self.nolyuolan = pygame.image.load("data/nolyuolan.png")
 
 class FlappyGachi(Game):
@@ -47,10 +46,6 @@ class FlappyGachi(Game):
                 elif right_side < 215:
                     self.walls.append(self.walls.pop(i))
 
-
-    def mouse_down(self):
-        pass
-
     def key_down(self,key):
         if key == pygame.K_RIGHT:
             self.epoch += 1
@@ -64,11 +59,8 @@ class FlappyGachi(Game):
         
         for gachi in self.gachis:
             gachi.draw(self.surface)
-        
 
-    def dispose(self):
-        #dispose code goes here
-        super().dispose()
+
 
 if __name__ == "__main__" :
     app = FlappyGachi(800,600,60,"Flappy Gachi")

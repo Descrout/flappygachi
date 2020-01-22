@@ -21,8 +21,7 @@ class Gachi:
         self.alive = True
 
     def think(self,wall):
-        input = [[self.y],[self.vel_y],[wall.x],[wall.top],[wall.bottom]]
-        prediction = self.brain.predict(input)
+        prediction = self.brain.predict([[self.y],[self.vel_y],[wall.x],[wall.top],[wall.bottom]])
         if prediction[0][0] > 0.5:
             self.jump()
 
@@ -35,19 +34,11 @@ class Gachi:
         self.y += self.vel_y
         self.collider.x = self.x
         self.collider.y = self.y
-
         self.score += 50
         self.think(wall)
 
-        #if self.y < 0:
-        #    self.y = 0
-
-        #if self.y + self.h > Game.height:
-        #    self.y = Game.height - self.h
-
         if self.collider.intersect(wall.collider_top) or self.collider.intersect(wall.collider_bottom) or self.y+self.h > Game.height or self.y<0:
             self.alive = False
-
 
     def draw(self,surface):
         self.anim.show(surface,self.x,self.y)
