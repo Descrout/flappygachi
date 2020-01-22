@@ -16,19 +16,25 @@ class Genetics:
 
     @staticmethod
     def pick_one(dead_gachis):
-        f_sum = 0
+        i = -1
+        r = random.random()
+        while r > 0:
+            i+=1
+            r -= dead_gachis[i].fitness   
+        return dead_gachis[i]
 
-        for d_gachi in dead_gachis:
-            f_sum += d_gachi.fitness
-            print("fitness : ",d_gachi.fitness)
+        #another selection method
+        #f_sum = 0
 
-        r = random.random() * f_sum
-        sum = 0
-        for d_gachi in dead_gachis:
-            if r <= (sum := sum + d_gachi.fitness):
-                print("picked : ",d_gachi.fitness)
-                return d_gachi
-        return None        
+        #for d_gachi in dead_gachis:
+        #    f_sum += d_gachi.fitness
+
+        #r = random.random() * f_sum
+        #sum = 0
+        #for d_gachi in dead_gachis:
+        #    if r <= (sum := sum + d_gachi.fitness):
+        #        return d_gachi
+        #return None     
 
     @staticmethod
     def mutate(gachi_arr,rate):
