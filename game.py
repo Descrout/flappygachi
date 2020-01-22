@@ -36,11 +36,16 @@ class Game:
     def mouse_down(self):
         pass
 
+    def key_down(self,key):
+        pass
+
     def handle_event(self, event):
         if event.type == pygame.QUIT:
             self._running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
             self.mouse_down()
+        elif event.type == pygame.KEYDOWN:
+            self.key_down(event.key)
     def update(self):
         pass
     def draw(self):
