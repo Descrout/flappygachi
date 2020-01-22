@@ -5,8 +5,8 @@ Flappy Gachi - neuroevolution flappy bird game made with python3&amp;pygame&amp;
 ```python -m pip install numpy pygame```
 
 ### Run
-After you install required libraries, just run : 
-**windows** : ``python main.py``
+After you install required libraries, just run :  
+**windows** : ``python main.py``  
 **linux**   : ``python3 main.py``
 
 ### Usage
