@@ -6,8 +6,8 @@ Flappy Gachi - neuroevolution flappy bird game made with python3&amp;pygame&amp;
 
 ### Run
 After you install required libraries, just run :  
-**windows** : ``python main.py``  
-**linux**   : ``python3 main.py``
+**Windows** : ``python main.py``  
+**Linux**   : ``python3 main.py``
 
 ### Usage
 You can speed up the training process by pressing left and right arrow keys.
