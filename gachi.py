@@ -12,7 +12,7 @@ class Gachi:
         self.anim = Animation(img,self.w,self.h)
         self.anim.anim_type = AnimType.REPEAT
         self.x = 250
-        self.brain = NeuralNetwork((5,5,1))
+        self.brain = NeuralNetwork((4,4,1))
         self.y = Game.height / 2
         self.vel_y = 0
         self.collider = Rectangle(self.x,self.y,self.w,self.h)
@@ -21,7 +21,7 @@ class Gachi:
         self.alive = True
 
     def think(self,wall):
-        prediction = self.brain.predict([[self.y],[self.vel_y],[wall.x],[wall.top],[wall.bottom]])
+        prediction = self.brain.predict([[self.y],[self.vel_y],[wall.x],[wall.top]])
         if prediction[0][0] > 0.5:
             self.jump()
 
